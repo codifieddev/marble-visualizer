@@ -1,5 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import InspirationContent from "./tabContent/InspirationContent";
+
 import ChatHome from "./chat/ChatHome";
 import GenAiImageGeneration from "@/components/workSpace/projectWorkSpace/genAiImageGeneration/GenAiImageGeneration";
 import ChatHistory from "./genAiHistory/ChatHistory";
@@ -27,7 +27,7 @@ export function StudioStyleTabs() {
       value: "renovation", 
       label: "Play",
       icon:  <RiEdit2Line  className="h-5 w-5 me-1"/>,
-      content: <InspirationContent />
+      // content: <InspirationContent />
     },
     {
       value: "history",
@@ -45,7 +45,7 @@ export function StudioStyleTabs() {
 
   return (
     <div className="flex w-full flex-col gap-6">
-      <Tabs value={currentTab} onValueChange={handleTabChange} className="w-full">
+      {/* <Tabs value={currentTab} onValueChange={handleTabChange} className="w-full">
         <TabsList className="grid w-full grid-cols-3 gap-2">
           {tabs.map((tab) => (
             <TabsTrigger
@@ -66,9 +66,11 @@ export function StudioStyleTabs() {
             {tab.content}
           </TabsContent>
         ))}
-      </Tabs>
+      </Tabs> */}
 
-      <GenAiImageGeneration/>
+      {/* <GenAiImageGeneration/> */}
+
+      {/* <InspirationContent /> */}
     </div>
   );
 }

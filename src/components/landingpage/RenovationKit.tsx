@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Crown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-
+import ProductImage from "../../../public/assets/marble/landscaping.jpg"
 type Pick = {
   id: string;
   title: string;
@@ -26,8 +26,7 @@ const PICKS: Pick[] = [
     blurb:
       "Fully renovate your existing room or home with AI and try different templates, styles, and colors for your dream space.",
     cta: "Try Now",
-    image:
-      "https://images.unsplash.com/photo-1582582429416-0ef1a1f1c34b?q=80&w=1600&auto=format&fit=crop",
+    image:ProductImage,
     buttonClassName: "bg-black hover:bg-black/90 text-white",
   },
   {

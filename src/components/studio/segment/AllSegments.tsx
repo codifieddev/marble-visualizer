@@ -187,12 +187,12 @@ const AllSegments = () => {
             );
           })}
 
-        {segments.length === 0 && (
+        {/* {segments.length === 0 && (
           <div className="text-center py-8 text-gray-500">
             <p className="text-sm">No segments available</p>
             <p className="text-xs mt-1">Create segments on the canvas</p>
           </div>
-        )}
+        )} */}
 
         <div className="flex items-center justify-between mb-4">
           <TooltipProvider>

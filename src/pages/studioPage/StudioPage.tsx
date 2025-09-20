@@ -35,7 +35,7 @@ import { resetCanvas, setIsCanvasModalOpen } from "@/redux/slices/canvasSlice";
 import ModelCanvas from "@/components/workSpace/projectWorkSpace/modelCanvas/ModelCanvas";
 
 import CreateMaterArrays from "@/components/studio/segment/CreateMaterArrays";
-import dzinlylogo from "../../../public/assets/image/dzinly-logo.svg";
+import logo from "../../../public/assets/marble/marble.png";
 import { Button } from "@/components/ui/button";
 import CanvasAdddNewSegmentHome from "@/components/canvas/canvasAddNewSegment/CanvasAdddNewSegmentHome";
 
@@ -223,12 +223,12 @@ export function StudioPage() {
       <div className="flex sm:flex-row flex-col md:h-screen bg-background relative">
         {/* <Breadcrumb /> */}
         <div className="w-full md:w-1/4 border-r overflow-hidden hidden md:block">
-          <div className="py-3 pt-2 px-4 flex items-center justify-between align-center">
+          <div className="py-2 pt-2 px-4 flex items-center justify-between align-center">
             <div className="text-start">
               <Link to="/">
                 <img
-                  className="w-44 text-center"
-                  src={dzinlylogo}
+                  className="w-28 text-center"
+                  src={logo}
                   alt="dzinly logo"
                 ></img>
               </Link>

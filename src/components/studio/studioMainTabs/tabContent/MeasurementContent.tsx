@@ -227,7 +227,7 @@ const MeasurementContent: React.FC = () => {
   return (
     <div className="max-h-full bg-white">
       {/* Header */}
-      <div className="px-4 py-3 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-indigo-50">
+      <div className="px-4 py-3 border-b border-gray-200 bg-white">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div className="w-6 h-6 bg-blue-500 rounded-lg flex items-center justify-center">
@@ -262,7 +262,7 @@ const MeasurementContent: React.FC = () => {
 
       <div className="flex flex-col h-full">
         {/* Dimension Reference */}
-        <div className="px-4 py-3 bg-gray-50 border-b bg-muted/80 border-gray-200">
+        <div className="px-4 py-3 bg-gray-50 border-b  border-gray-200">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Target className="w-4 h-4 text-gray-400" />

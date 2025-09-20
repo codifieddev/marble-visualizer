@@ -56,6 +56,8 @@ import ProjectAction from "./ProjectAction";
 import GetHouseSegments from "./analyseProjectImage/GetHouseSegments";
 import DeleteModal from "./deleteProject/DeleteModel";
 import CreateProjectHome from "./createProject/CreateProjectHome";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import ProductCategory from "./ProductCategory";
 
 export function ProjectsPage() {
   // const [user_id, setUser_id] = useState<string | null>(null);
@@ -266,8 +268,7 @@ export function ProjectsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="space-y-6 p-8 pe-10 ps-8"
-        >
+          className="space-y-6 p-8 pe-10 ps-8">
           {/* Header */}
           {isOpen && (
             <AnalyzedDataModal
@@ -281,129 +282,155 @@ export function ProjectsPage() {
 
           {/* Stats Section */}
 
-          {/* Stats Cards */}
-          <ProjectStaticCard />
+          <Tabs defaultValue="account" className="mx-auto">
+            <div className="flex itmes-center justify-between">
+              <TabsList className="bg-gray-50 border border-gray-300 rounded-full p-1 flex w-[400px] ">
+                <TabsTrigger
+                  value="account"
+                  className="flex-1 px-4 py-2 rounded-full text-sm font-medium transition-all focus:ring-0 focus:outline-none
+                  data-[state=active]:bg-blue-600 data-[state=active]:text-white
+                  data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:bg-gray-50 data-[state=inactive]:hover:border-gray-50
+                ">
+                  Library
+                </TabsTrigger>
 
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <AnimatePresence>
-              {userProjects.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  layout
-                >
-                  <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden rounded-lg">
-                    <div
-                      className="relative"
-                      onClick={() => handleProjectClick(project)}
-                    >
-                      {project.jobData && project.jobData.length > 0 ? (
-                        <div className="relative overflow-hidden rounded-lg rounded-b-none ">
-                          <LazyLoadImage
-                            src={
-                              project.jobData[0]?.thumbnail ||
-                              "/placeholder-image.png"
-                            }
-                            alt={project.name}
-                            className="w-full h-52 object-cover transition-transform duration-300 group-hover:scale-105"
-                            effect="blur"
-                            placeholderSrc="/placeholder-image.png"
-                            threshold={100}
-                            wrapperClassName="w-full h-52"
-                          />
-                          <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        </div>
-                      ) : (
-                        <div className="w-full h-52 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
-                          <FolderOpen className="h-8 w-8 text-primary/50" />
-                        </div>
-                      )}
+                <TabsTrigger
+                  value="password"
+                  className="
+        flex-1 px-4 py-2 rounded-full text-sm font-medium transition-all focus:ring-0 focus:outline-none
+        data-[state=active]:bg-blue-600 data-[state=active]:text-white 
+        data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:bg-gray-50 data-[state=inactive]:hover:border-gray-50
+      ">
+                  My design
+                </TabsTrigger>
+              </TabsList>
 
-                      {/* Visibility and Role indicators */}
-                      <div className="absolute top-2 right-2 flex items-center space-x-1">
-                        <Badge
-                          variant="secondary"
-                          className={cn(
-                            "text-xs",
-                            project.visibility === "public"
-                              ? "bg-green-500/10 text-green-500 border-green-500/20"
-                              : "bg-gray-500/10 text-gray-500 border-gray-500/20"
-                          )}
-                        >
-                          {project.visibility === "public" ? (
-                            <Globe className="h-3 w-3 mr-1" />
+              <Button
+                onClick={handleCreateProject}
+                className="flex items-center space-x-2">
+                <Plus className="h-4 w-4" />
+                <span>Create Project</span>
+              </Button>
+            </div>
+
+            <TabsContent value="account" className="mt-4">
+              <ProductCategory />
+              <ProjectStaticCard />
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <AnimatePresence>
+                  {userProjects.map((project, index) => (
+                    <motion.div
+                      key={project.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      layout>
+                      <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden rounded-lg">
+                        <div
+                          className="relative"
+                          onClick={() => handleProjectClick(project)}>
+                          {project.jobData && project.jobData.length > 0 ? (
+                            <div className="relative overflow-hidden rounded-lg rounded-b-none ">
+                              <LazyLoadImage
+                                src={
+                                  project.jobData[0]?.thumbnail ||
+                                  "/placeholder-image.png"
+                                }
+                                alt={project.name}
+                                className="w-full h-52 object-cover transition-transform duration-300 group-hover:scale-105"
+                                effect="blur"
+                                placeholderSrc="/placeholder-image.png"
+                                threshold={100}
+                                wrapperClassName="w-full h-52"
+                              />
+                              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            </div>
                           ) : (
-                            <Lock className="h-3 w-3 mr-1" />
+                            <div className="w-full h-52 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
+                              <FolderOpen className="h-8 w-8 text-primary/50" />
+                            </div>
                           )}
-                          {project.visibility}
-                        </Badge>
-                      </div>
 
-                      {/* Role badge */}
-                      <div className="absolute top-2 left-2"></div>
-                    </div>
+                          {/* Visibility and Role indicators */}
+                          <div className="absolute top-2 right-2 flex items-center space-x-1">
+                            <Badge
+                              variant="secondary"
+                              className={cn(
+                                "text-xs",
+                                project.visibility === "public"
+                                  ? "bg-green-500/10 text-green-500 border-green-500/20"
+                                  : "bg-gray-500/10 text-gray-500 border-gray-500/20"
+                              )}>
+                              {project.visibility === "public" ? (
+                                <Globe className="h-3 w-3 mr-1" />
+                              ) : (
+                                <Lock className="h-3 w-3 mr-1" />
+                              )}
+                              {project.visibility}
+                            </Badge>
+                          </div>
 
-                    <CardHeader className="pb-3">
-                      <div className="flex items-center justify-between">
-                        <CardTitle className="text-lg truncate">
-                          {project.name}
-                        </CardTitle>
-                        <Badge
-                          className={getStatusColor(
-                            project?.status || "active"
-                          )}
-                        >
-                          {project?.status}
-                        </Badge>
-                      </div>
-                      <CardDescription className="line-clamp-2">
-                        {project.description || "No description provided"}
-                      </CardDescription>
-                    </CardHeader>
-
-                    <CardContent className="space-y-4">
-                      <div className="flex items-center text-sm text-muted-foreground">
-                        <Calendar className="mr-2 h-4 w-4" />
-                        Updated {formatDate(project.updated_at || "")}
-                      </div>
-
-                      {/* Access info */}
-                      <div className="flex items-center text-sm text-muted-foreground">
-                        <Users className="mr-2 h-4 w-4" />
-                      </div>
-
-                      <div className="space-y-2">
-                        <div className="flex justify-between text-sm">
-                          <span>Progress</span>
-                          <span>{project.progress}%</span>
+                          {/* Role badge */}
+                          <div className="absolute top-2 left-2"></div>
                         </div>
-                        <Progress value={project.progress} className="h-2" />
-                      </div>
-                      {isUpdating &&
-                        updatingProjectId.includes(project.id!) && <Loader />}
 
-                      <ProjectAction
-                        project={project}
-                        openAnalysedData={handleOpenAnalysedData}
-                        doHouseAnalysis={handleHouseAnalysis}
-                      />
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
+                        <CardHeader className="pb-3">
+                          <div className="flex items-center justify-between">
+                            <CardTitle className="text-lg truncate">
+                              {project.name}
+                            </CardTitle>
+                            <Badge
+                              className={getStatusColor(
+                                project?.status || "active"
+                              )}>
+                              {project?.status}
+                            </Badge>
+                          </div>
+                          <CardDescription className="line-clamp-2">
+                            {project.description || "No description provided"}
+                          </CardDescription>
+                        </CardHeader>
+
+                        <CardContent className="space-y-4">
+                          {/* <div className="flex items-center text-sm text-muted-foreground">
+                  <Calendar className="mr-2 h-4 w-4" />
+                  Updated {formatDate(project.updated_at || "")}
+                </div> */}
+
+                          {/* Access info */}
+                          {/* <div className="flex items-center text-sm text-muted-foreground">
+                  <Users className="mr-2 h-4 w-4" />
+                </div> */}
+
+                          {isUpdating &&
+                            updatingProjectId.includes(project.id!) && (
+                              <Loader />
+                            )}
+
+                          {/* <ProjectAction
+                  project={project}
+                  openAnalysedData={handleOpenAnalysedData}
+                  doHouseAnalysis={handleHouseAnalysis}
+                /> */}
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </div>
+            </TabsContent>
+
+            <TabsContent value="password" className="mt-4">
+              Change your password here.
+            </TabsContent>
+          </Tabs>
 
           {userProjects.length === 0 && !isLoading && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-center py-12"
-            >
+              className="text-center py-12">
               <FolderOpen className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
               <h3 className="text-lg font-semibold mb-2">No projects yet</h3>
               <p className="text-muted-foreground mb-4">

@@ -6,7 +6,11 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Building2, Castle, Landmark } from "lucide-react";
 import { cn } from "@/lib/utils";
-
+import bedroom from "../../../public/assets/marble/bhedroom.jpg"
+import bathroom from "../../../public/assets/marble/bhathroom.jpg"
+import hotel from "../../../public/assets/marble/hotel.jpg"
+import building from "../../../public/assets/marble/building.jpg"
+import Home from "../../../public/assets/marble/home.jpg"
 type Room = { id: string; title: string; image: string };
 
 type Props = {
@@ -34,14 +38,12 @@ export default function DashboardShowcase({
     {
       id: "bedroom",
       title: "Bedroom",
-      image:
-        "https://images.unsplash.com/photo-1505691723518-36a5ac3b2d51?q=80&w=1600&auto=format&fit=crop",
+      image: bedroom,
     },
     {
       id: "bathroom",
       title: "Bathroom",
-      image:
-        "https://images.unsplash.com/photo-1505691723518-36a5ac3b2d51?q=80&w=1600&auto=format&fit=crop",
+      image:bathroom,
     },
   ],
 }: Props) {
@@ -49,27 +51,25 @@ export default function DashboardShowcase({
   const exterior: Room[] = [
     {
       id: "facade",
-      title: "Facade",
-      image:
-        "https://images.unsplash.com/photo-1501183638710-841dd1904471?q=80&w=1600&auto=format&fit=crop",
+      title: "Building",
+      image:building,
+      
     },
     {
       id: "patio",
-      title: "Patio",
-      image:
-        "https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1600&auto=format&fit=crop",
+      title: "Home",
+      image: Home,       
     },
     {
       id: "garden",
-      title: "Garden",
-      image:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1600&auto=format&fit=crop",
+      title: "Hotel",
+      image: hotel,
     },
   ];
   const commercial: Room[] = [
     {
       id: "lobby",
-      title: "Lobby",
+      title: "Hotel",
       image:
         "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop",
     },
@@ -124,26 +124,53 @@ export default function DashboardShowcase({
       
       <Tabs value={tab} onValueChange={(v) => setTab(v as any)} className="w-full">
         
-         <TabsList className="h-auto gap-2 bg-gray-300 flex justify-center w-[40%] mx-auto p-2 rounded-lg">
-          <TabsTrigger
-            value="residential"
-            className="data-[state=active]:bg-white data-[state=active]:shadow-sm"
-          >
-          <Landmark className="mr-2 h-4 w-4" />  Residential 
-          </TabsTrigger>
-          <TabsTrigger
-            value="exterior"
-            className="data-[state=active]:bg-white data-[state=active]:shadow-sm"
-          >
-           <Castle className="mr-2 h-4 w-4" /> Exterior 
-          </TabsTrigger>
-          <TabsTrigger
-            value="commercial"
-            className="data-[state=active]:bg-background data-[state=active]:shadow-sm"
-          >
-           <Building2 className="mr-2 h-4 w-4" />  Commercial 
-          </TabsTrigger>
-        </TabsList>
+   <TabsList
+  className="
+    h-auto gap-2 
+    bg-gray-300 
+    flex justify-center 
+    w-full sm:w-[60%] md:w-[40%] 
+    mx-auto p-2 rounded-lg
+  "
+>
+  <TabsTrigger
+    value="residential"
+    className="
+      flex flex-col sm:flex-row items-center justify-center
+      data-[state=active]:bg-white data-[state=active]:shadow-sm 
+      bg-gray-200 px-3 py-2 text-sm sm:text-base whitespace-nowrap rounded-md
+    "
+  >
+    <Landmark className="mb-1 sm:mb-0 sm:mr-2 h-4 w-4" />
+    Residential
+  </TabsTrigger>
+
+  <TabsTrigger
+    value="exterior"
+    className="
+      flex flex-col sm:flex-row items-center justify-center
+      data-[state=active]:bg-white data-[state=active]:shadow-sm 
+      bg-gray-200 px-3 py-2 text-sm sm:text-base whitespace-nowrap rounded-md
+    "
+  >
+    <Castle className="mb-1 sm:mb-0 sm:mr-2 h-4 w-4" />
+    Exterior
+  </TabsTrigger>
+
+  <TabsTrigger
+    value="commercial"
+    className="
+      flex flex-col sm:flex-row items-center justify-center
+      data-[state=active]:bg-white data-[state=active]:shadow-sm 
+      bg-gray-200 px-3 py-2 text-sm sm:text-base whitespace-nowrap rounded-md
+    "
+  >
+    <Building2 className="mb-1 sm:mb-0 sm:mr-2 h-4 w-4" />
+    Commercial
+  </TabsTrigger>
+</TabsList>
+
+
 
         {/* Horizontal cards – simple native scroller (no ScrollArea) */}
         <div className="mt-4 sm:mt-6 rounded-xl border bg-card text-card-foreground p-4 sm:p-6 mb-8">
