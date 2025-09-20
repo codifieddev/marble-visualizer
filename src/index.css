@@ -59,7 +59,7 @@ button:focus, button:focus-visible { outline: 4px auto -webkit-focus-ring-color;
     --foreground: oklch(0.309 0 0); /* ~ #4F4F4F */
 
     /* brand (same for light & dark) */
-    --primary: oklch(0.623 0.214 259.815);            /* indigo/purple */
+    --primary: oklch(60.443% 0.21049 259.129);            /* indigo/purple */
     --primary-foreground: oklch(0.969 0.016 293.756); /* on-primary */
     /* for rgba hovers */
     --primary-rgb: 100,108,255; /* #646cff */
@@ -89,7 +89,7 @@ button:focus, button:focus-visible { outline: 4px auto -webkit-focus-ring-color;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+    --radius: 1.5rem;
   }
 
   /* Dark theme — keep primary same as light */

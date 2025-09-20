@@ -202,9 +202,10 @@ const MeasurementTab: React.FC<MeasurementTabProps> = ({
   return (
     <>
       {/* Tab Navigation */}
+       {masterArray.map((tab: MasterModel) => (
       <div className=" bg-transparent  border-gray-200 ">
-        <div className="flex space-x-0 overflow-x-auto my-2 pb-2 thin-scrollbar gap-2 border-b px-3">
-          {masterArray.map((tab: MasterModel) => (
+        <div className="flex space-x-0 overflow-x-auto my-2 pb-2 thin-scrollbar gap-2  px-3">
+         
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab?.name ?? "")}
@@ -220,12 +221,13 @@ const MeasurementTab: React.FC<MeasurementTabProps> = ({
                 </span>
               </div>
             </button>
-          ))}
+       
         </div>
       </div>
+         ))}
 
       {/* Content Area */}
-      <div className="flex flex-col overflow-auto">
+      <div className="flex flex-col items-center justify-center overflow-auto h-[64vh]">
         {activeTabData ? (
           <>
             {/* <WallSelectionModal
@@ -454,7 +456,7 @@ const MeasurementTab: React.FC<MeasurementTabProps> = ({
             </div>
           </>
         ) : (
-          <div className="flex flex-col items-center justify-center py-10 bg-gray-50 rounded-lg border border-gray-200 shadow-sm">
+          <div className="flex flex-col items-center justify-center py-10 bg-gray-50 rounded-lg border border-gray-200 shadow-sm  w-80">
             {/* Icon */}
             <div className="bg-blue-100 text-blue-500 p-4 rounded-full mb-3">
               <Building className="w-10 h-10" />

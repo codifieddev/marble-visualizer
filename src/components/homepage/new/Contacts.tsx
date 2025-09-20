@@ -71,8 +71,8 @@ const Contact = () => {
               Our experts will assess your marble and provide a detailed restoration plan with transparent pricing.
             </p>
             <Button 
-              size="lg" 
-              className="bg-gradient-gold hover:shadow-gold transition-all duration-300 text-marble-charcoal font-semibold px-12 py-4 text-xl"
+             
+              className="bg-gradient-gold hover:shadow-gold transition-all duration-300 text-marble-charcoal font-medium lg:px-12 px-4 text-md py-5  lg:text-md"
             >
               Schedule Free Consultation
             </Button>

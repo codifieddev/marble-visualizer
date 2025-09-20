@@ -1,6 +1,6 @@
 import GetAllInspirational from "@/components/swatchBookData/GetAllInsiprational";
 
-import InspirationSidebar from "@/components/workSpace/projectWorkSpace/InspirationSidebar";
+// import InspirationSidebar from "@/components/workSpace/projectWorkSpace/InspirationSidebar";
 import WorkSpaceHome from "@/components/workSpace/WorkSpaceHome";
 
 import React from "react";
@@ -14,7 +14,7 @@ const WorkspaceProjectPage: React.FC = () => {
       <div className="flex">
         {/* Left: Inspiration and uploads */}
         <div className="w-1/4 border-r">
-          <InspirationSidebar />
+          {/* <InspirationSidebar /> */}
         </div>
 
         {/* Middle: Main image preview and AI Guidance panel */}

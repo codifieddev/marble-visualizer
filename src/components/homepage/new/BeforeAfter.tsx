@@ -2,7 +2,7 @@
 
 const BeforeAfter = () => {
   return (
-    <section className="py-20 bg-gradient-to-r from-yellow-100 via-white to-yellow-400 relative overflow-hidden">
+    <section className="py-20 relative bg-gray-50 overflow-hidden">
       <div className="absolute inset-0 opacity-10 bg-[url('/assets/marble/marble-after.jpg')] bg-cover bg-center pointer-events-none" />
       <div className="relative z-10">
   <div className="container mx-auto px-6">
@@ -69,10 +69,10 @@ const BeforeAfter = () => {
               Every marble surface has the potential to be stunning. Let our experts reveal its hidden beauty.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-gold hover:shadow-gold transition-all duration-300 text-marble-charcoal font-semibold px-8 py-3 rounded-lg">
+              <button className="bg-white shadow hover:shadow-gold transition-all duration-300 text-marble-charcoal font-medium px-8 py-3 rounded-lg">
                 Schedule Consultation
               </button>
-              <button className="border border-marble-gray hover:bg-marble-gray hover:text-marble-white transition-all duration-300 text-marble-gray-dark font-semibold px-8 py-3 rounded-lg">
+              <button className="bg-white shadow border border-marble-gray hover:bg-marble-gray hover:text-marble-white transition-all duration-300 text-marble-gray-dark font-medium px-8 py-3 rounded-lg">
                 Call (555) 123-4567
               </button>
             </div>

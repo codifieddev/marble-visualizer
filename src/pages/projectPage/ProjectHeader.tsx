@@ -28,19 +28,13 @@ const ProjectHeader = ({ createProject }: Props) => {
       </div>
 
       <div className="md:flex grid justify-between items-center p-0 hidden md:block">
-        <div className="pb-4 md:pb-0">
+        {/* <div className="pb-4 md:pb-0">
           <h1 className="text-3xl font-bold tracking-tight pb-1">Projects</h1>
           <p className="text-muted-foreground text-sm">
-            Manage your projects and track progress
+            Manage your projects and track progress 1
           </p>
-        </div>
-        <Button
-          onClick={handleCreateProject}
-          className="flex items-center space-x-2"
-        >
-          <Plus className="h-4 w-4" />
-          <span>Create Project</span>
-        </Button>
+        </div> */}
+       
       </div>
     </>
   );

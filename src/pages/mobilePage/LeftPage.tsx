@@ -12,7 +12,9 @@ import { updateActiveTab } from "@/redux/slices/visualizerSlice/workspaceSlice";
 import { clearCurrentJob } from "@/redux/slices/jobSlice";
 import { toast } from "sonner";
 import { logActivity } from "@/redux/slices/activityLogsSlice";
-import InspirationSidebar from "@/components/workSpace/projectWorkSpace/InspirationSidebar";
+// import InspirationSidebar from "@/components/workSpace/projectWorkSpace/InspirationSidebar";
+// import InspirationSidebar from "@/components/workSpace/projectWorkSpace/i";
+
 // Dummy components and handlers for demonstration
 
 const LeftPage = () => {
@@ -155,7 +157,7 @@ const LeftPage = () => {
         </TabsContent>
 
         <TabsContent value="inspiration" className="flex-grow overflow-auto">
-          <InspirationSidebar />
+          {/* <InspirationSidebar /> */}
         </TabsContent>
       </Tabs>
     </div>

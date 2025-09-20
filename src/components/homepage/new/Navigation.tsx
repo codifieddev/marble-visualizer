@@ -8,16 +8,20 @@ const Navigation = () => {
   const navigate = useNavigate();
 
   return (
-    <nav className="bg-white/70 fixed top-0 z-50 py-3 w-full">
+    <nav className="bg-white/70 lg:fixed sm:fixed sticky  top-0 z-50 py-1 w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
+           <Link
+              to="/"
+            >
           <div className="flex items-center">
-            <img className="w-44 h-auto" src={dzinlylogo} alt="dzinly logo" />
+            <img className="w-40 h-auto" src={dzinlylogo} alt="dzinly logo" />
           </div>
+          </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             <Link
               to="#features"
               className="text-gray-600 hover:text-gray-900 transition-colors"
@@ -36,14 +40,14 @@ const Navigation = () => {
             >
               Reviews
             </Link>
-            <Button variant="outline" className="mr-2">
-              <Link to="/login">Sign In</Link>
+            <Button variant="outline" className="mr-2 text-black rounded-full">
+              <Link to="/login" className=''>Sign In</Link>
             </Button>
 
-            <Button variant="outline" className="mr-1">
+            <Button variant="outline" className="mr-1 rounded-full">
               <Link to="/signup">Sign Up</Link>
             </Button>
-            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
+            <Button className="bg-blue-500 hover:bg-blue-600 hover:text-white text-white">
               <Link to="/workspace" className="text-white">
                 Get Started
               </Link>
@@ -107,7 +111,7 @@ const Navigation = () => {
             </Link>
             <Link
               to="/workspace"
-              className="block text-center text-white px-4 py-2 rounded bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-colors"
+              className="block text-center text-white px-4 py-2 rounded bg-blue-500 transition-colors"
             >
               Get Started
             </Link>
